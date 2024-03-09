@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static "assets/css/document_detail.css" %}">
+{% endblock css %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2 class="mb-4">{{ object.title }}</h2>
+
+        <div class="row">
+            <div class="col-md-6">
+                {% if object.picture %}
+                    <img src="{{ object.picture.url }}" alt="{{ object.title }}" class="img-fluid rounded stretch-image">
+                {% else %}
+                    <img src="https://via.placeholder.com/500x450/AAAAAA/FFFFFF?text=No+Image+Available" alt="{{ object.title }}" class="img-fluid rounded stretch-image">
+                {% endif %}
+            </div>
+            
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Description</h5>
+                        <p class="card-text">{{ object.description }}</p>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">File/Document URL</h5>
+                        {% if object.document_url %}
+                            <p class="card-text"><a href="{{ object.document_url }}" target="_blank">{{ object.document_url }}</a></p>
+                        {% else %}
+                            <p class="card-text text-muted">No URL provided.</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Note</h5>
+                        <p class="card-text">{{ object.note }}</p>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    {% if object.file_document %}
+                        <a href="{{ object.file_document.url }}" class="btn btn-success ml-2" download>
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    {% else %}
+                        <button class="btn btn-secondary ml-2" disabled>
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    {% endif %}
+                    
+                    {% if request.user.is_superuser %}
+                        <a href="{% url 'app:document_update' object.pk %}" class="btn btn-warning">
+                            <i class="fas fa-edit"></i> Edit
+                        </a>
+                        
+                        <a href="{% url 'app:document_delete' object.pk %}" class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i> Delete
+                        </a>
+                    {% endif %}
+                </div>
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}

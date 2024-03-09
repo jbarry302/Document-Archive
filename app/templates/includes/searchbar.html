@@ -1,0 +1,18 @@
+<form method="GET" class="mt-4">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name="q" value="{{ request.GET.q }}">
+        <input type="hidden" name="view" value="{{ request.GET.view }}">
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-outline-secondary">Search</button>
+        </div>
+    </div>
+</form>
+
+<p class="text-muted font-weight-normal fs-6 pl-2 pt-2">
+    {% if request.GET.q %}
+        Showing {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} results for "{{request.GET.q|default:'all'}}".
+        <a href="{{ request.path }}?view={{ request.GET.view }}">Clear</a>
+    {% else %}
+        Showing {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} results.
+    {% endif %}
+</p>

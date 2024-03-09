@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1 class="display-4">Your Document Archive</h1>
+                    <p class="lead">Effortlessly manage and organize your documents with our user-friendly archive.</p>
+                    <a class="btn btn-primary btn-lg" href="{% url 'app:documents' %}" role="button">Explore Documents</a>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4">
+                        <img src="{% static "assets/images/undraw_my_files_swob.svg" %}" alt="Document Archive" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <i class="fas fa-file-alt fa-3x"></i>
+                        <h3>Document Management</h3>
+                        <p>Organize and keep track of your documents seamlessly.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <i class="fas fa-cloud-upload-alt fa-3x"></i>
+                        <h3>Easy Uploads</h3>
+                        <p>Upload documents and images with ease, making your archive complete.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <i class="fas fa-globe fa-3x"></i>
+                        <h3>Accessible Anywhere</h3>
+                        <p>Access your documents from anywhere with our online archive.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
