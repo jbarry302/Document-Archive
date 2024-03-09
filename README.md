@@ -2,9 +2,10 @@
 
 Document Archive is a sophisticated document management system developed as part of the CS Elective 2 midterm project. This web application, built using the Django framework, offers an intuitive and secure platform for organizing, storing, and accessing digital documents. With features such as document categorization, search functionality, and user role management, Document Archive simplifies the process of document handling. 
 
-![Screenshot 1](docs/images/Screenshot 2024-03-10 at 02-04-41 Home.png)
-![Screenshot 2](docs/images/Screenshot 2024-03-10 at 02-05-47 Your Document Archive.png)
-![Screenshot 3](docs/images/Screenshot 2024-03-10 at 02-05-54 Your Document Archive.png)
+![Screenshot 1](docs/images/Screenshot%202024-03-10%20at%2002-04-41%20Home.png)
+![Screenshot 2](docs/images/Screenshot%202024-03-10%20at%2002-05-47%20Your%20Document%20Archive.png)
+![Screenshot 3](docs/images/Screenshot%202024-03-10%20at%2002-05-54%20Your%20Document%20Archive.png)
+
 
 ## Features
 
